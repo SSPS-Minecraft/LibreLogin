@@ -8,7 +8,6 @@ package xyz.kyngs.librelogin.common.command.commands.authorization;
 
 import co.aikar.commands.annotation.*;
 import net.kyori.adventure.audience.Audience;
-import org.bukkit.Bukkit;
 import xyz.kyngs.librelogin.api.event.events.AuthenticatedEvent;
 import xyz.kyngs.librelogin.common.AuthenticLibreLogin;
 import xyz.kyngs.librelogin.common.command.InvalidCommandArgument;
@@ -29,7 +28,7 @@ public class RegisterCommand<P> extends AuthorizationCommand<P> {
     @CommandCompletion("%autocomplete.register")
     public CompletionStage<Void> onRegister(Audience sender, P player, @Single String password, String passwordRepeat, String code) {
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(Bukkit.getPluginsFolder().getPath() + "/SSPSLogin/players.csv"));
+            BufferedReader reader = new BufferedReader(new FileReader("/home/container/plugins/SSPSLogin/players.csv"));
             String line = reader.readLine();
             boolean found = false;
             while (line != null) {
