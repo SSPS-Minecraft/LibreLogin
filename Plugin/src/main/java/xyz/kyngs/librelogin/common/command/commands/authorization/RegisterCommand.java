@@ -37,13 +37,15 @@ public class RegisterCommand<P> extends AuthorizationCommand<P> {
                 if (items[0].equals(getUser(player).getLastNickname())) {
                     found = true;
                     if (!items[1].equals(code)) {
-                        throw new InvalidCommandArgument(getMessage("ssps-bad-code"));
+                        sender.sendMessage(getMessage("ssps-bad-code"));
+                        return null;
                     }
                 }
                 line = reader.readLine();
             }
             if (!found) {
-                throw new InvalidCommandArgument(getMessage("ssps-no-code"));
+                sender.sendMessage(getMessage("ssps-no-code"));
+                return null;
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
