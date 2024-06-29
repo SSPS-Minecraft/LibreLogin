@@ -15,6 +15,20 @@ import xyz.kyngs.librelogin.common.config.key.ConfigurationKey;
 @SuppressWarnings("unused")
 public class MessageKeys {
 
+    public static final ConfigurationKey<String> SSPS_AUTH_BAD_CODE = new ConfigurationKey<>(
+            "ssps-bad-code",
+            "Zadal/a jsi špatný kód!",
+            "This message is displayed when you enter a bad code from SSPŠ",
+            ConfigurateHelper::getString
+    );
+
+    public static final ConfigurationKey<String> SSPS_AUTH_NO_CODE = new ConfigurationKey<>(
+            "ssps-no-code",
+            "Musíš nejdřív získat kód přes /getcode!",
+            "This message is displayed when you enter a code from SSPŠ, but none exists",
+            ConfigurateHelper::getString
+    );
+
     /*
     Kicks related to autologin
      */
@@ -847,7 +861,7 @@ public class MessageKeys {
 
     public static final ConfigurationKey<String> SYNTAX_REGISTER = new ConfigurationKey<>(
             "syntax.register",
-            "<password> <passwordRepeat>",
+            "<password> <passwordRepeat> <code>",
             "This message is displayed when the player attempts to register with wrong syntax.",
             ConfigurateHelper::getString
     );
